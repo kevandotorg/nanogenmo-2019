@@ -20,7 +20,7 @@
 	
 	function heading($text,$h=3)
 	{
-		return "<h$h class=\"ghead\">$text</h$h>";
+		return "<h$h>$text</h$h>";
 	}
 
 	function paragraph($text,$tags=1)
