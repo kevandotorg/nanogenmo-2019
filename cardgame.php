@@ -352,7 +352,12 @@
 		else
 		{
 			$trumps = 1;
-			if (rand(1,$rarity*4)==1) { $playpara .= "Place the top card of the $nameofdeck face-down: this determines trump suit, but is not revealed (and does not apply) until the first time a player plays a suit that does not match the lead suit. "; }
+			if (rand(1,$rarity*4)==1)
+			{
+				$playpara .= "Place the top card of the $nameofdeck face-down: this determines trump suit, but is not revealed (and does not apply) until the first time a player plays a suit that does not match the lead suit. ";
+				array_push($adjectives,randword("suspenseful","tense"));
+				array_push($facts,"trumps are not revealed immediately");
+			}
 			else if ($noneremain == 1)
 			{ $playpara .= randword(randword("The dealer","The player to the dealer's left")." calls a trump suit before looking at their hand.","Reveal the final card as it is dealt; it determines trump suit.","Trumps alternate club/diamonds/hearts/spades for each deal.",ucfirst(randsuit($specialdeck))."s are always trumps.")." "; }
 			else
@@ -407,6 +412,7 @@
 			{ $rules .= paragraph("Each hand is played either \"high\" or \"low\". Before the hand each player chooses a red or black card from their hand, and these are revealed simultaneously: if all cards are red the hand is played low, otherwise it is played high."); }
 					
 			$nullo = 1;
+			array_push($adjectives,randword("uneasy"));
 			array_push($facts,"hands are played high or low");
 		}
 		
@@ -526,7 +532,7 @@
 			$rules .= paragraph($playpara);
 			$kitty = "";			
 
-			array_push($facts,"players gang up against the \"$landlord\"");
+			array_push($facts,"players ".randword("work together","gang up")." against the \"$landlord\"");
 			array_push($adjectives,randword("collaborative","combative","competitive","antagonistic","ruthless"));
 		}
 
